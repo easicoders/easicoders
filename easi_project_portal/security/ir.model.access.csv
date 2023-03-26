@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+crud_account_analytic_line,crud_analytic_lines,analytic.model_account_analytic_line,group_hr_timesheet_portal,1,1,1,1
+crud_account_analytic_account,crud_analytic_account,analytic.model_account_analytic_account,group_hr_timesheet_portal,1,1,1,1
+read_hr_employee,read_employees,hr.model_hr_employee,group_hr_timesheet_portal,1,0,0,0
+write_project_task,write_project_task,project.model_project_task,group_hr_timesheet_portal,1,1,0,0
