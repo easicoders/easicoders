@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="easi_portal_my_task" name="My Task" inherit_id="project.portal_my_task">
+        <xpath expr="//div[hasclass('card-body')]" position="inside">
+            <div id="create_timesheet" class="card-body">
+                <div role="dialog" class="modal" id="modalcreate" tabindex="-1" aria-labelledby="TimesheetCreate">
+                <div class="modal-dialog">
+                    <form role="form" id="create" method="POST" t-attf-action="/my/timesheet/create?task_id={{ object.id }}&amp;project_id={{ object.project_id.id }}">
+                        <div class="modal-content">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="modal-header">
+                                <h4 class="modal-title">New Timesheet</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label>Project: </label><label class="o_form_label" t-field="task.project_id"
+                                                               id="project"/><br/>
+                                <label> Task: </label><label class="o_form_label" t-field="task.name"
+                                                            id="task"/><br/>
+                                <label>Date: </label>
+                                <input type="date" id="c_date" name="c_date" required="required"/>
+                                <br/>
+                                <label>Description: </label>
+                                <input type="text" id="c_name" class="o_composer_text_field" name="c_name"
+                                       required="required"/>
+                                <br/>
+                                <label>Spent Time: </label>
+                                <input type="text" id="c_unit_amount" class="o_composer_text_field" name="c_unit_amount"
+                                       required="required"/>
+                                <br/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success" options='{"always_reload": True}'>
+                                    Create
+                                </button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <a role="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#modalcreate"
+                   href="#" groups="easi_project_portal.group_hr_timesheet_portal"> New Timesheet </a>
+            </div>
+        </xpath>
+    </template>
+</odoo>
