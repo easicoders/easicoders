@@ -1,0 +1,4 @@
+[submodule "easicoders/ITAdmin"]
+	path = easicoders/ITAdmin
+	url = git@github.com:easicoders/ITAdmin.git
+	branch = 15.0
